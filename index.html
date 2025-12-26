@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Scientist Portfolio — Liz</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body data-theme="light">
+  <nav class="nav glass">
+    <div class="brand">Liz — Data Scientist</div>
+    <div class="nav-controls">
+      <label class="theme-switch" title="Toggle theme">
+        <input id="themeToggle" type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero glass">
+      <div class="hero-left">
+        <h1>안녕하세요, 저는 Liz입니다.</h1>
+        <p class="lead">데이터로 인사이트를 만들고, 시각화와 머신러닝으로 이야기를 전합니다.</p>
+        <p class="meta">Python · SQL · ML · Visualization · Experimentation</p>
+      </div>
+      <div class="hero-right">
+        <div class="profile-card glass">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=9b3a2c9c8a0d3b3b" alt="profile"/>
+          <div class="card-body">
+            <h3>Liz</h3>
+            <p>데이터 사이언스와 시각화에 열정을 가진 분석가입니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <h2>프로젝트 하이라이트</h2>
+      <div class="cards">
+        <article class="card glass">
+          <h3>판매 예측 모델</h3>
+          <p>시계열 예측을 통해 SKU 단위의 월별 매출 예측 모델을 개발했습니다.</p>
+          <button class="more-btn" data-accordion="proj1">자세히 보기</button>
+        </article>
+
+        <article class="card glass">
+          <h3>대화형 대시보드</h3>
+          <p>Streamlit과 D3를 사용해 사용자가 필터링 가능한 대시보드를 제작했습니다.</p>
+          <button class="more-btn" data-accordion="proj2">자세히 보기</button>
+        </article>
+
+        <article class="card glass">
+          <h3>고객 세분화</h3>
+          <p>클러스터링으로 고객군을 분류하고 마케팅 전략을 도출했습니다.</p>
+          <button class="more-btn" data-accordion="proj3">자세히 보기</button>
+        </article>
+      </div>
+
+      <div class="accordion" id="accordionArea">
+        <div class="acc-panel" id="proj1">
+          <h4>판매 예측 모델 — 세부 정보</h4>
+          <p>ARIMA, Prophet, LGBM 기반의 하이브리드 모델을 실험했고, MAPE 6.2%를 달성했습니다. 피쳐 엔지니어링과 캘린더/프로모션 효과를 포함했습니다.</p>
+        </div>
+        <div class="acc-panel" id="proj2">
+          <h4>대화형 대시보드 — 세부 정보</h4>
+          <p>사용자 정의 필터, 시계열 브러시, 국가별 맵 시각화 포함. 성능을 위해 적재 시 요약 테이블을 사용했습니다.</p>
+        </div>
+        <div class="acc-panel" id="proj3">
+          <h4>고객 세분화 — 세부 정보</h4>
+          <p>KMeans와 HDBSCAN을 비교하고, LTV 기반 세그먼트를 추출하여 캠페인 타게팅을 제안했습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visualization glass">
+      <h2>인터랙티브 시각화</h2>
+      <div class="viz-controls">
+        <label>데이터: <select id="datasetSelect"><option value="sales">월별 매출</option><option value="users">월별 활성 사용자</option></select></label>
+        <label>스무딩: <input id="smoothing" type="range" min="0" max="10" value="0"/></label>
+      </div>
+      <canvas id="vizChart" height="160"></canvas>
+      <div class="viz-legend">차트에 마우스를 올려 상세값을 확인하세요. 범례를 클릭해 시리즈를 토글할 수 있습니다.</div>
+    </section>
+
+    <section class="contact glass">
+      <h2>상세 설명 & 연락</h2>
+      <div class="contact-grid">
+        <div class="desc">
+          <h3>분석 접근법</h3>
+          <p>문제 정의 → 데이터 수집 → 탐색적 분석 → 모델링 → 배포 및 모니터링. 각 단계 별로 재현 가능한 파이프라인을 유지합니다.</p>
+        </div>
+        <form class="contact-form">
+          <label>이름<input type="text" placeholder="이름"/></label>
+          <label>이메일<input type="email" placeholder="you@example.com"/></label>
+          <label>메시지<textarea placeholder="간단한 문의 내용을 남겨주세요"></textarea></label>
+          <button type="button">전송 (샘플)</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer glass">
+    <small>© Liz — Data Scientist — Portfolio</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
