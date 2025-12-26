@@ -1,110 +1,249 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Data Scientist Portfolio — Liz</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-</head>
-<body data-theme="light">
-  <nav class="nav glass">
-    <div class="brand">Liz — Data Scientist</div>
-    <div class="nav-controls">
-      <label class="theme-switch" title="Toggle theme">
-        <input id="themeToggle" type="checkbox" />
-        <span class="slider"></span>
-      </label>
-    </div>
-  </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Liz — Data Scientist Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Chart.js (no build tools required) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  </head>
+  <body data-theme="dark">
+    <!-- Progress indicator (top) -->
+    <div id="progressContainer" aria-hidden="true"><div id="progressBar"></div></div>
 
-  <main class="container">
-    <section class="hero glass">
-      <div class="hero-left">
-        <h1>안녕하세요, 저는 Liz입니다.</h1>
-        <p class="lead">데이터로 인사이트를 만들고, 시각화와 머신러닝으로 이야기를 전합니다.</p>
-        <p class="meta">Python · SQL · ML · Visualization · Experimentation</p>
-      </div>
-      <div class="hero-right">
-        <div class="profile-card glass">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=9b3a2c9c8a0d3b3b" alt="profile"/>
-          <div class="card-body">
-            <h3>Liz</h3>
-            <p>데이터 사이언스와 시각화에 열정을 가진 분석가입니다.</p>
+    <!-- Fixed navigation with scroll-spy -->
+    <header class="site-header" role="banner">
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <div class="nav-inner">
+          <a class="brand" href="#hero">Liz</a>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#dashboard">Mini Dashboard</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Hero: name, title, value prop, CTA, 3 KPIs -->
+      <section id="hero" class="section hero-section">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Liz — Data Scientist</h1>
+            <p class="hero-sub">데이터로 전략을 설계하고, 결과를 숫자로 증명합니다.</p>
+            <p class="hero-tagline">실무 중심의 분석·모델링·시각화로 의사결정을 가속화합니다.</p>
+            <div class="hero-ctas">
+              <a class="btn primary" href="#projects">Projects</a>
+              <a class="btn ghost" href="#contact">Contact</a>
+            </div>
+            <ul class="hero-kpis" role="list">
+              <li><strong>12</strong><span>분석 프로젝트</span></li>
+              <li><strong>+18%</strong><span>평균 KPI 개선</span></li>
+              <li><strong>5</strong><span>대시보드 배포</span></li>
+            </ul>
+          </div>
+          <div class="hero-panel glass">
+            <img class="profile-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&s=9b3a2c9c8a0d3b3b" alt="profile image" />
+            <div class="panel-body">
+              <h3>Quick Stats</h3>
+              <p>Specializes in retail analytics, time-series forecasting, and dashboarding for product teams.</p>
+              <ul class="mini-stats">
+                <li><strong>MAPE</strong><span>6.2%</span></li>
+                <li><strong>LTV uplift</strong><span>+4.2x (segmented)</span></li>
+                <li><strong>Realtime</strong><span>ETL → Dashboard</span></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="projects">
-      <h2>프로젝트 하이라이트</h2>
-      <div class="cards">
-        <article class="card glass">
-          <h3>판매 예측 모델</h3>
-          <p>시계열 예측을 통해 SKU 단위의 월별 매출 예측 모델을 개발했습니다.</p>
-          <button class="more-btn" data-accordion="proj1">자세히 보기</button>
-        </article>
-
-        <article class="card glass">
-          <h3>대화형 대시보드</h3>
-          <p>Streamlit과 D3를 사용해 사용자가 필터링 가능한 대시보드를 제작했습니다.</p>
-          <button class="more-btn" data-accordion="proj2">자세히 보기</button>
-        </article>
-
-        <article class="card glass">
-          <h3>고객 세분화</h3>
-          <p>클러스터링으로 고객군을 분류하고 마케팅 전략을 도출했습니다.</p>
-          <button class="more-btn" data-accordion="proj3">자세히 보기</button>
-        </article>
-      </div>
-
-      <div class="accordion" id="accordionArea">
-        <div class="acc-panel" id="proj1">
-          <h4>판매 예측 모델 — 세부 정보</h4>
-          <p>ARIMA, Prophet, LGBM 기반의 하이브리드 모델을 실험했고, MAPE 6.2%를 달성했습니다. 피쳐 엔지니어링과 캘린더/프로모션 효과를 포함했습니다.</p>
+      <!-- About -->
+      <section id="about" class="section about-section glass">
+        <h2>About</h2>
+        <p>데이터를 비즈니스 언어로 번역하여 실행 가능한 인사이트를 도출합니다. 실무에서 반복 가능한 데이터 파이프라인을 구축하고, 결과를 이해하기 쉬운 대시보드로 전달하는 것을 중요하게 생각합니다. 통계적 엄밀성과 제품 관점의 균형을 맞춘 분석을 제공합니다.</p>
+        <div class="badges">
+          <span class="badge">Product-minded</span>
+          <span class="badge">Experimentation</span>
+          <span class="badge">Reproducible Pipelines</span>
+          <span class="badge">Data Viz</span>
         </div>
-        <div class="acc-panel" id="proj2">
-          <h4>대화형 대시보드 — 세부 정보</h4>
-          <p>사용자 정의 필터, 시계열 브러시, 국가별 맵 시각화 포함. 성능을 위해 적재 시 요약 테이블을 사용했습니다.</p>
-        </div>
-        <div class="acc-panel" id="proj3">
-          <h4>고객 세분화 — 세부 정보</h4>
-          <p>KMeans와 HDBSCAN을 비교하고, LTV 기반 세그먼트를 추출하여 캠페인 타게팅을 제안했습니다.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="visualization glass">
-      <h2>인터랙티브 시각화</h2>
-      <div class="viz-controls">
-        <label>데이터: <select id="datasetSelect"><option value="sales">월별 매출</option><option value="users">월별 활성 사용자</option></select></label>
-        <label>스무딩: <input id="smoothing" type="range" min="0" max="10" value="0"/></label>
-      </div>
-      <canvas id="vizChart" height="160"></canvas>
-      <div class="viz-legend">차트에 마우스를 올려 상세값을 확인하세요. 범례를 클릭해 시리즈를 토글할 수 있습니다.</div>
-    </section>
-
-    <section class="contact glass">
-      <h2>상세 설명 & 연락</h2>
-      <div class="contact-grid">
-        <div class="desc">
-          <h3>분석 접근법</h3>
-          <p>문제 정의 → 데이터 수집 → 탐색적 분석 → 모델링 → 배포 및 모니터링. 각 단계 별로 재현 가능한 파이프라인을 유지합니다.</p>
+      <!-- Skills -->
+      <section id="skills" class="section skills-section">
+        <h2>Skills</h2>
+        <p>언어, 분석, 시각화, 데이터 엔지니어링과 협업 도구에 능숙합니다.</p>
+        <div class="skill-controls">
+          <div class="filters" role="tablist" aria-label="Skill filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="analysis">Analysis</button>
+            <button class="filter-btn" data-filter="viz">Visualization</button>
+            <button class="filter-btn" data-filter="ml">ML</button>
+            <button class="filter-btn" data-filter="dataeng">Data Eng</button>
+          </div>
         </div>
-        <form class="contact-form">
-          <label>이름<input type="text" placeholder="이름"/></label>
-          <label>이메일<input type="email" placeholder="you@example.com"/></label>
-          <label>메시지<textarea placeholder="간단한 문의 내용을 남겨주세요"></textarea></label>
-          <button type="button">전송 (샘플)</button>
+        <div class="skills-grid" id="skillsGrid">
+          <!-- Each skill shows skill name, level and a one-line evidence sentence -->
+          <article class="skill-card" data-category="analysis">
+            <h3>Python</h3>
+            <p class="level">Advanced — pandas 기반 ETL 및 모델 전처리 실무</p>
+          </article>
+          <article class="skill-card" data-category="analysis">
+            <h3>SQL</h3>
+            <p class="level">Advanced — 복잡한 JOIN/Window 쿼리 및 성능 튜닝</p>
+          </article>
+          <article class="skill-card" data-category="viz">
+            <h3>Tableau / Looker</h3>
+            <p class="level">Pro — 운영 대시보드 설계 및 퍼포먼스 최적화</p>
+          </article>
+          <article class="skill-card" data-category="viz">
+            <h3>D3 / Charting</h3>
+            <p class="level">Intermediate — 맞춤형 대화형 시각화 구현</p>
+          </article>
+          <article class="skill-card" data-category="ml">
+            <h3>Time Series</h3>
+            <p class="level">Intermediate — Prophet, ARIMA 및 트리 모델 혼합</p>
+          </article>
+          <article class="skill-card" data-category="dataeng">
+            <h3>ETL / Airflow</h3>
+            <p class="level">Intermediate — 배치 파이프라인 설계 및 모니터링</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Featured Projects: all content visible -->
+      <section id="projects" class="section projects-section glass">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+          <!-- Project 1 -->
+          <article class="project-card glass">
+            <h3>Sales Forecasting System</h3>
+            <p class="meta">Problem: SKU-level monthly demand variance caused stockouts and overstocks.</p>
+            <p><strong>Approach:</strong> Hybrid model (LightGBM + Prophet residuals), calendar & promo features, per-SKU holdout evaluation.</p>
+            <p><strong>Result:</strong> MAPE 6.2% on validation, reduced stockouts by estimated 12%.</p>
+            <p><strong>Stack:</strong> Python, pandas, LightGBM, Prophet, Docker, Postgres</p>
+            <p><a href="#">Link: repository / demo</a></p>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card glass">
+            <h3>Retention Dashboard & Cohort Analysis</h3>
+            <p class="meta">Problem: Rising churn with limited channel-level insight.</p>
+            <p><strong>Approach:</strong> Cohort analysis, RFM segmentation, dashboard with cohort selector & channel breakdown.</p>
+            <p><strong>Result:</strong> Identified 3 at-risk cohorts and recommended onboarding flows; projected revenue uplift +9%</p>
+            <p><strong>Stack:</strong> SQL, Tableau, Python</p>
+            <p><a href="#">Link: dashboard demo</a></p>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card glass">
+            <h3>Customer Segmentation for Targeted Campaigns</h3>
+            <p class="meta">Problem: Generic promotions had low ROI.</p>
+            <p><strong>Approach:</strong> Feature engineering (recency, frequency, monetary, behavior), KMeans + HDBSCAN exploration, LTV estimation.</p>
+            <p><strong>Result:</strong> Targeted campaigns increased conversion in segment A by 18%.</p>
+            <p><strong>Stack:</strong> Python, scikit-learn, SQL</p>
+            <p><a href="#">Link: analysis notebook</a></p>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card glass">
+            <h3>Realtime Monitoring & Alerting</h3>
+            <p class="meta">Problem: Delayed detection of ETL failures and KPI drift.</p>
+            <p><strong>Approach:</strong> Lightweight ETL validation, automated alerts, dashboarding of data quality metrics.</p>
+            <p><strong>Result:</strong> Mean time to detect decreased from 4h to 15m.</p>
+            <p><strong>Stack:</strong> Airflow, Python, Prometheus, Grafana</p>
+            <p><a href="#">Link: runbook</a></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Process: timeline/flow -->
+      <section id="process" class="section process-section">
+        <h2>Process</h2>
+        <ol class="process-flow">
+          <li><strong>Define</strong><span>Problem framing & metrics</span></li>
+          <li><strong>Ingest</strong><span>Data collection & validation</span></li>
+          <li><strong>Explore</strong><span>EDA & hypothesis</span></li>
+          <li><strong>Model</strong><span>Modeling & evaluation</span></li>
+          <li><strong>Deliver</strong><span>Dashboard & MLOps</span></li>
+          <li><strong>Monitor</strong><span>Drift detection & iteration</span></li>
+        </ol>
+      </section>
+
+      <!-- Impact: KPI cards (6) -->
+      <section id="impact" class="section impact-section glass">
+        <h2>Impact</h2>
+        <div class="kpi-grid">
+          <div class="kpi-card"><strong>+18%</strong><span>Avg KPI uplift</span></div>
+          <div class="kpi-card"><strong>12</strong><span>Projects delivered</span></div>
+          <div class="kpi-card"><strong>5</strong><span>Dashboards</span></div>
+          <div class="kpi-card"><strong>6.2%</strong><span>MAPE (forecast)</span></div>
+          <div class="kpi-card"><strong>4.2x</strong><span>Top-segment LTV</span></div>
+          <div class="kpi-card"><strong>15m</strong><span>MTTD (realtime)</span></div>
+        </div>
+      </section>
+
+      <!-- Mini Dashboard: charts with exposed core numbers beneath -->
+      <section id="dashboard" class="section dashboard-section">
+        <h2>Mini Dashboard</h2>
+        <div class="charts-grid">
+          <div class="chart-card glass">
+            <h3>Monthly Revenue</h3>
+            <canvas id="chartRevenue" height="120"></canvas>
+            <p class="chart-note">Current year revenue: <strong>$3.2M</strong></p>
+          </div>
+          <div class="chart-card glass">
+            <h3>Active Users</h3>
+            <canvas id="chartUsers" height="120"></canvas>
+            <p class="chart-note">MAU: <strong>1,600</strong></p>
+          </div>
+          <div class="chart-card glass">
+            <h3>Conversion Funnel</h3>
+            <canvas id="chartFunnel" height="120"></canvas>
+            <p class="chart-note">Overall conversion: <strong>3.8%</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience / Education timeline -->
+      <section id="experience" class="section experience-section glass">
+        <h2>Experience & Education</h2>
+        <ul class="timeline">
+          <li><strong>Data Analyst — RetailCo</strong><span>2023 - Present — Led forecasting initiative</span></li>
+          <li><strong>Data Scientist Intern — ShopX</strong><span>2022 - 2023 — Cohort analysis & dashboards</span></li>
+          <li><strong>MSc Applied Statistics</strong><span>2021 — University</span></li>
+        </ul>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section contact-section">
+        <h2>Contact</h2>
+        <p>Interested in collaboration or hiring? 연락 바랍니다.</p>
+        <form class="contact-form" aria-label="Contact form">
+          <label>이름<input name="name" type="text" required /></label>
+          <label>이메일<input name="email" type="email" required /></label>
+          <label>메시지<textarea name="message" rows="4" required></textarea></label>
+          <div class="contact-actions"><button type="submit" class="btn primary">Send</button><a href="mailto:liz@example.com" class="contact-link">liz@example.com</a></div>
         </form>
-      </div>
-    </section>
-  </main>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="GitHub">GitHub</a>
+        </div>
+      </section>
+    </main>
 
-  <footer class="site-footer glass">
-    <small>© Liz — Data Scientist — Portfolio</small>
-  </footer>
+    <footer class="site-footer" role="contentinfo">
+      <small>© Liz — Data Scientist</small>
+    </footer>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
